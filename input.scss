@@ -1,0 +1,139 @@
+@import "resetBase";
+
+
+$blue: #4985FF;
+$white: #fff;
+$dark: #323232;
+$grey: #999999;
+$br: 30px;
+$font-size: 16px;
+$sectionGrey: #F6F6F8;
+$wrapperSize: 1110px;
+
+%wrapper {
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@mixin content {
+    width: 1110px;
+   
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+}
+
+@mixin flex($dir, $align, $justify) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+#main {
+    @extend %wrapper;
+    height: 900px;
+     background: url(./img/main.jpg);
+    background-size: cover;
+    .content {
+        height: 100px;
+        @include flex(column, center, center);
+        text-align: center;
+        color: $white;
+        .small-heading {
+            font-size: $font-size;
+            line-height: $font-size + 4;
+            margin-bottom: $font-size + 4;
+            font-weight: 500;
+        }
+        .main-heading {
+            font-weight: 800;
+            font-size: ($font-size * 4) + 8;
+            line-height: $font-size * 4;
+            margin-bottom: $font-size * 3;
+        }
+    }
+  
+}
+
+.button-link {
+    width: 200px;
+    height: 45px;
+    background: $blue;
+    box-shadow: 0px 0px 10px rgba(111, 111, 111, 0.25);
+    border-radius: 30px;
+    color: $white;
+    font-weight: 500;
+    font-size: $font-size;
+    @include flex(row, center, center)
+}
+
+.content{
+    @include content();
+    @extend %wrapper;
+    @include flex(row, center, center);
+}
+
+.main-header {
+    @extend %wrapper;
+    @include flex(row, center, center);
+    height: 100px;
+    border-bottom: 1px solid gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .content {
+        @include flex(row,center, flex-end);
+        nav.main-nav {
+            width: fit-content;
+            a.nav-link {
+                color: $white;
+                margin-right: 20px;
+                padding: 0 15px;
+                border: 2px solid transparent;
+                padding: 0 15px 38px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &:hover {
+                    border-bottom:  2px solid $white;
+                }
+            }
+        }
+    }
+}
+
+#create-app {
+height: 700px;
+@extend %wrapper;
+
+}
+#standarts {
+    height: 800px;
+    background: $sectionGrey;
+}
+
+#specialists {
+    height: 800px;
+}
+#projects {
+    height: 776px;
+    background: $sectionGrey;
+}
+#video {
+    height: 1080px;
+}
+
+.main-footer {
+    height: 413px;
+    background: $sectionGrey;
+
+}
+.test {
+    width: 100px;
+    height: 1100px;
+}

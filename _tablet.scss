@@ -1,0 +1,8 @@
+@media (max-width:768px) {
+    .block {
+        background: gold;
+        @media (max-width:600px) {
+            color: green;
+        }
+    }
+}
