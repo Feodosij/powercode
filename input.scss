@@ -20,7 +20,7 @@ $wrapperSize: 1110px;
 
 @mixin content {
     width: 1110px;
-   
+
     @media (max-width: 1200px) {
         width: 100%;
     }
@@ -33,32 +33,6 @@ $wrapperSize: 1110px;
     justify-content: $justify;
 }
 
-#main {
-    @extend %wrapper;
-    height: 900px;
-     background: url(./img/main.jpg);
-    background-size: cover;
-    .content {
-        height: 100px;
-        @include flex(column, center, center);
-        text-align: center;
-        color: $white;
-        .small-heading {
-            font-size: $font-size;
-            line-height: $font-size + 4;
-            margin-bottom: $font-size + 4;
-            font-weight: 500;
-        }
-        .main-heading {
-            font-weight: 800;
-            font-size: ($font-size * 4) + 8;
-            line-height: $font-size * 4;
-            margin-bottom: $font-size * 3;
-        }
-    }
-  
-}
-
 .button-link {
     width: 200px;
     height: 45px;
@@ -68,34 +42,36 @@ $wrapperSize: 1110px;
     color: $white;
     font-weight: 500;
     font-size: $font-size;
-    @include flex(row, center, center)
+    @include flex(row, center, center);
 }
 
 .content{
     @include content();
-    @extend %wrapper;
-    @include flex(row, center, center);
+    height: 100%;
+    @include flex(column, center, center);
+    text-align: center;
 }
+
+
 
 .main-header {
     @extend %wrapper;
     @include flex(row, center, center);
     height: 100px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #a1a1a1;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    backdrop-filter: blur(2px);
     .content {
-        @include flex(row,center, flex-end);
+        @include flex(row, center, flex-end);
         nav.main-nav {
             width: fit-content;
             a.nav-link {
                 color: $white;
                 margin-right: 20px;
-                padding: 0 15px;
-                border: 2px solid transparent;
                 padding: 0 15px 38px;
+                border-bottom: 2px solid transparent;
                 &:last-child {
                     margin-right: 0;
                 }
@@ -107,11 +83,119 @@ $wrapperSize: 1110px;
     }
 }
 
-#create-app {
-height: 700px;
-@extend %wrapper;
-
+#main {
+    @extend %wrapper;
+    height: 900px;
+     background: url(./img/main.jpg);
+    background-size: cover;
+    .content {
+        color: $white;
+        .small-heading {
+            font-size: $font-size;
+            line-height: $font-size + 4;
+            margin-bottom: $font-size + 4;
+            font-weight: 500;
+        }
+        .main-heading {
+            font-weight: 800;
+            font-size: $font-size * 3;
+            line-height: $font-size * 4;
+            margin-bottom: $font-size * 3;
+        }
+    }
+  
 }
+
+
+// ----------------- SECTION 1 END ------------------
+
+
+// ----------------- SECTION 2 START ----------------
+#create-app {
+  height: 700px;
+  @extend %wrapper;
+    .content {
+        .section-heading,
+        .section-description {
+            width: 740px;
+        }
+        .section-heading {
+            margin-bottom: $font-size * 3;
+        }
+        .section-description {
+            margin-bottom: ($font-size * 4) + 6;
+        }
+        .flex-items {
+            @include flex(row, flex-start, space-between);
+            width: 100%;
+            margin-bottom: 55px;
+        }
+    }
+}
+
+.section-heading {
+    color: $dark;
+    font-size: ($font-size * 2) + 4;
+    line-height: $font-size * 3;
+}
+
+.section-description {
+    color: $grey;
+    font-size: $font-size;
+    line-height: $font-size * 1.5;
+}
+
+.mobile-items {
+    width: calc(33.3% - 20px);
+    @include flex(row, flex-start, space-between);
+     .circle {
+         width: 110px;
+         height: 110px;
+         border-radius: 50%;
+         border: 1px solid #e0e0e0;
+         display: flex;
+         .circle-small {
+             width: 90px;
+             height: 90px;
+             border-radius: 50%;
+             border: 1px solid $blue;
+             margin: auto;
+             display: flex;
+             > img.icon {
+                 width: 40px;
+                 height: 40px;
+                 margin: auto;
+             }
+         }
+     }
+     .content-mobile-items {
+         width: calc(100% - 118px);
+         text-align: left;
+         .heading-items {
+             font-weight: 600;
+             font-size: 18px;
+             line-height: 22px;
+             color: #000000;
+             margin-bottom: 12px;
+             padding-top: 48px;
+         }
+         .description-items {
+             width: 222px;
+             height: 58px;
+             font-size: 14px;
+             line-height: 22px;
+             color: #999999;
+         }
+     }
+}
+
+
+
+
+
+
+
+
 #standarts {
     height: 800px;
     background: $sectionGrey;
